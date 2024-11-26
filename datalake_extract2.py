@@ -49,7 +49,12 @@ def download_blob_via_get(container_url, blob_name, sas_token, output_dir):
         return None
 
 # Transformer le fichier Parquet en PNG et CSV
-def process_parquet(file_path, output_dir):
+def process_parquet(file_path, base_output_dir):
+    # Identifier un sous-dossier unique pour ce fichier Parquet
+    parquet_name = os.path.splitext(os.path.basename(file_path))[0]
+    output_dir = os.path.join(base_output_dir, parquet_name)
+    os.makedirs(output_dir, exist_ok=True)
+
     # Lire le fichier Parquet
     df = pd.read_parquet(file_path, engine='pyarrow')
     print(f"Traitement du fichier : {file_path}")
@@ -72,7 +77,7 @@ def process_parquet(file_path, output_dir):
     df['image_path'] = image_paths
 
     # Sauvegarder le DataFrame mis à jour (avec les titres et les chemins d'images) en CSV
-    csv_path = os.path.join(output_dir, "titles_and_images.csv")
+    csv_path = os.path.join(output_dir, f"{parquet_name}_titles_and_images.csv")
     df[['title', 'image_path']].to_csv(csv_path, index=False)
     print(f"Titres et chemins d'images sauvegardés dans : {csv_path}")
 
@@ -87,15 +92,15 @@ if __name__ == "__main__":
     print(f"Blobs trouvés dans {target_dir} : {blobs}")
 
     # Télécharger chaque blob
-    output_dir = "downloads"
+    base_output_dir = "downloads"
     for blob_name in blobs:
         file_path = download_blob_via_get(
             container_url=f"https://{storage_account_name}.blob.core.windows.net/{container_name}",
             blob_name=blob_name,
             sas_token=container_sas_url.split('?')[-1],
-            output_dir=output_dir
+            output_dir=base_output_dir
         )
 
         # Si le fichier téléchargé est un Parquet, le traiter
         if file_path and file_path.endswith('.parquet'):
-            process_parquet(file_path, output_dir)
+            process_parquet(file_path, base_output_dir)
