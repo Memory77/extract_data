@@ -3,3 +3,4 @@ pandas
 python-dotenv
 azure-storage-blob
 pyarrow
+duckdb
