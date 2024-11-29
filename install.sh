@@ -1,16 +1,13 @@
 #!/bin/bash
 
-# Se positionner dans le répertoire du script
+#positionne dans le répertoire du script
 cd "$(dirname "$0")"
 
-# Vérifier si .env existe
+#on verifie si .env existe, sinon 
 if [[ ! -f ".env" ]]; then
     echo "Le fichier .env est manquant ! Renseignez le .env"
     exit 1
 fi
-
-
-
 
 if ! [[ "18.04 20.04 22.04 23.04 24.04" == *"$(lsb_release -rs)"* ]];
 then

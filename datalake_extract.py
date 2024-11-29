@@ -131,7 +131,7 @@ if __name__ == "__main__":
 
     handler = AzureBlobHandler(account_name, container_name, account_key)
 
-    # Processer chaque répertoire
+    # processing répertoire
     base_output_dir = "telechargements"
     handler.process_directory("product_eval", base_output_dir)
     handler.process_directory("nlp_data", base_output_dir)
