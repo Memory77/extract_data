@@ -1,0 +1,2 @@
+# Exécute script.sh toutes les heures
+0 * * * * bash /app/scripts_docker.sh >> /var/log/cron_extracts.log 2>&1

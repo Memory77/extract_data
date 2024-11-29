@@ -1,16 +1,13 @@
 #!/bin/bash
 
-# Se positionner dans le répertoire du script
+#positionne dans le répertoire du script
 cd "$(dirname "$0")"
 
-# Vérifier si .env existe
+#on verifie si .env existe, sinon 
 if [[ ! -f ".env" ]]; then
     echo "Le fichier .env est manquant ! Renseignez le .env"
     exit 1
 fi
-
-
-
 
 if ! [[ "18.04 20.04 22.04 23.04 24.04" == *"$(lsb_release -rs)"* ]];
 then
@@ -41,14 +38,14 @@ sudo apt-get install -y unixodbc-dev
 
 echo 'Installation du venv'
 #installation du venv
-python -m venv venv
+python3 -m venv venv
 
 echo 'Activation du venv'
 #entrer dans le venv
 source venv/bin/activate
 
 echo 'upgrade pip'
-python -m pip install --upgrade pip
+python3 -m pip install --upgrade pip
 
 #installation des dépendances
 echo 'installation des dépendances'
@@ -56,7 +53,8 @@ pip install -r requirements.txt
 
 
 #lancement du script
-echo "lancement du script d'extraction des données"
-python db_extract.py
-#script datalake
-#script csv 
+echo "lancement du script d'extraction de la base de donnée"
+python3 db_extract.py || echo "Erreur : lors de l'extraction des données de la bdd"
+
+echo "lancement du script d'extraction du datalake..."
+python3 datalake_extract.py || echo "Erreur : lors de l'extraction des données du datalake"
