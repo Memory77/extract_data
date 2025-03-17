@@ -1,5 +1,5 @@
 
-<stong>Description</strong>
+<strong>Description</strong>
 
 extract_data est un projet qui permet d'extraire des données depuis trois sources différentes :
 
@@ -10,13 +10,13 @@ Un système Big Data
 Le projet utilise Docker pour faciliter l'exécution sur n'importe quel système d'exploitation.
 
 
-<stong>Prérequis</strong>
+<strong>Prérequis</strong>
 
 Docker installé sur votre machine.
 Git pour cloner le dépôt.
     
 
-<stong>Installation</strong>
+<strong>Installation</strong>
 
 Cloner le dépôt :
 
