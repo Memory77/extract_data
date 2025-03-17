@@ -3,22 +3,22 @@
 
 extract_data est un projet qui permet d'extraire des données depuis trois sources différentes :
 
-    Une base de données
-    Un fichier de données
-    Un système Big Data
+Une base de données
+Un fichier de données
+Un système Big Data
 
 Le projet utilise Docker pour faciliter l'exécution sur n'importe quel système d'exploitation.
 
 
 <stong>Prérequis</strong>
 
-    Docker installé sur votre machine.
-    Git pour cloner le dépôt.
+Docker installé sur votre machine.
+Git pour cloner le dépôt.
     
 
 <stong>Installation</strong>
 
-    Cloner le dépôt :
+Cloner le dépôt :
 
 git clone https://github.com/Memory77/extract_data.git
 cd extract_data
@@ -27,7 +27,7 @@ Configurer la planification (facultatif) :
 
 Si vous souhaitez exécuter le script à intervalles réguliers, ouvrez le fichier cron_docker et ajustez la planification à votre convenance :
 
-0 * * * * /scripts_docker.sh >> /var/log/cron.log 2>&1
+    0 * * * * /scripts_docker.sh >> /var/log/cron.log 2>&1
 
 Construire l'image Docker :
 
@@ -36,9 +36,9 @@ Construire l'image Docker :
 
 <strong>Exécution</strong>
 
-    Exécution unique du conteneur :
+Exécution unique du conteneur :
 
-docker run --rm extract_data_image
+    docker run --rm extract_data_image
 
 Cela exécute le projet une seule fois, puis supprime automatiquement le conteneur.
 
@@ -46,11 +46,11 @@ Exécution en arrière-plan (mode détaché) :
 
 Si vous voulez que le conteneur tourne en arrière-plan :
 
-docker run -d --name extract_data_container extract_data_image
+    docker run -d --name extract_data_container extract_data_image
 
 Vous pouvez vérifier les logs avec :
 
-docker logs -f extract_data_container
+    docker logs -f extract_data_container
 
 Et arrêter le conteneur avec :
 
@@ -59,8 +59,8 @@ Et arrêter le conteneur avec :
 
 <strong>Structure du projet</strong>
 
-    datalake_extract.py : Script principal pour l'extraction des données.
-    db_extract.py : Script pour l'extraction des données depuis une base de données.
-    dockerfile : Fichier Docker pour construire l'image.
-    cron_docker : Configuration cron pour exécuter le script à intervalles réguliers.
-    scripts_docker.sh : Script exécuté par cron pour lancer l'extraction.
+datalake_extract.py : Script principal pour l'extraction des données.
+db_extract.py : Script pour l'extraction des données depuis une base de données.
+dockerfile : Fichier Docker pour construire l'image.
+cron_docker : Configuration cron pour exécuter le script à intervalles réguliers.
+scripts_docker.sh : Script exécuté par cron pour lancer l'extraction.
