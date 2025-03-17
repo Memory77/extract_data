@@ -3,9 +3,9 @@
 
 extract_data est un projet qui permet d'extraire des données depuis trois sources différentes :
 
-Une base de données
-Un fichier de données
-Un système Big Data
+- Une base de données
+- Un fichier de données
+- Un système Big Data
 
 Le projet utilise Docker pour faciliter l'exécution sur n'importe quel système d'exploitation.
 
@@ -59,8 +59,8 @@ Et arrêter le conteneur avec :
 
 <strong>Structure du projet</strong>
 
-datalake_extract.py : Script principal pour l'extraction des données.
-db_extract.py : Script pour l'extraction des données depuis une base de données.
-dockerfile : Fichier Docker pour construire l'image.
-cron_docker : Configuration cron pour exécuter le script à intervalles réguliers.
-scripts_docker.sh : Script exécuté par cron pour lancer l'extraction.
+- datalake_extract.py : Script principal pour l'extraction des données.
+- db_extract.py : Script pour l'extraction des données depuis une base de données.
+- dockerfile : Fichier Docker pour construire l'image.
+- cron_docker : Configuration cron pour exécuter le script à intervalles réguliers.
+- scripts_docker.sh : Script exécuté par cron pour lancer l'extraction.
