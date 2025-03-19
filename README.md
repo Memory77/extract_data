@@ -7,6 +7,9 @@ extract_data est un projet qui permet d'extraire des données depuis trois sourc
 - Un fichier de données
 - Un système Big Data
 
+  ![image](https://github.com/user-attachments/assets/88246dfa-cc02-4cc6-bbd4-422786a0aa8b)
+
+
 Le projet utilise Docker pour faciliter l'exécution sur n'importe quel système d'exploitation.
 
 
