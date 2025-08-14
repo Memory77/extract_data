@@ -7,7 +7,7 @@ extract_data est un projet qui permet d'extraire des données depuis trois sourc
 - Un fichier de données
 - Un système Big Data
 
-<img width="2452" height="3840" alt="Untitled diagram _ Mermaid Chart-2025-08-14-154136" src="https://github.com/user-attachments/assets/b05dcaec-053b-4ae8-9157-89d5e14f8b40" />
+<img width="1800" height="3000" alt="Untitled diagram _ Mermaid Chart-2025-08-14-154136" src="https://github.com/user-attachments/assets/b05dcaec-053b-4ae8-9157-89d5e14f8b40" />
 
 
 Le projet utilise Docker pour faciliter l'exécution sur n'importe quel système d'exploitation.
